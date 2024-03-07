@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raad het getal</title>
+    <link rel="stylesheet" href="/css/guess.css">
+    <script src="/js/guess.js"></script>
+</head>
+<body>
+    <header class="header">Raad het getal</header>
+
+    <div class="info-container">
+        <h1>Klik op de button om te beginnen</h1>
+        <button class="Start-button" onclick="showGuessContainer()">Begin</button>
+    </div>
+    <div class="guess-container" id="guess-container">
+        <form class="guess-form">
+            <input type="text" id="input-guess" placeholder="typ een getal om te raden of q om te stoppen" autocomplete="off">
+            <button type="button" onclick="checkGuess(event)" id="submit-guess">Verstuur keuze</button>
+            <p id="output" class="output"></p>
+            <p id="output-hint" class="output"></p>
+        </form>
+    </div>
+</body>
+</html>
