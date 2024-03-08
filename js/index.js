@@ -21,7 +21,7 @@ function randomsom() {
   return { question, result };
 }
 
-function displayRandomQuestion() {
+function displayRandomSom() {
   const { question, result } = randomsom();
   const somInput = document.getElementById('som');
 
@@ -41,7 +41,7 @@ function checkAnswer() {
     } else {
       alert(`helaas, het antwoord was ${correctAnswer}` );
     }
-    displayRandomQuestion();
+    displayRandomSom();
   } else {
     alert('Please enter a valid number as your answer.');
   }
@@ -53,4 +53,4 @@ document.getElementById('submit-button').addEventListener('click', function(even
 });
 
 
-displayRandomQuestion();
+displayRandomSom();

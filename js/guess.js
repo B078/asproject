@@ -32,10 +32,12 @@ function checkGuess(event) {
         
     } else {
         const difference = Math.abs(secretNumber - parseInt(userGuess));
+        console.log(pogingen)
         let message = '';
         let messageHint = '';
-
-        if (difference < 10) {
+        if( pogingen === 10) {
+            message = "Helaas te veel pogingen";
+        }else if  (difference < 10) {
             message = 'Heel Warm! ';
         } else if (difference < 20) {
             message = 'Warm! ';
@@ -44,7 +46,7 @@ function checkGuess(event) {
         } else if (difference > 50) {
             message = "Heel Koud";
         }
-
+        
         if (parseInt(userGuess) < secretNumber) {
             messageHint = 'Probeer hoger.';
         } else {
@@ -55,6 +57,6 @@ function checkGuess(event) {
         document.getElementById("output-hint").innerText = messageHint;
 
         inputGuess.value = '';
-        inputGuess.placeholder = 'typ een getal om te raden';
+        inputGuess.placeholder = 'typ een getal om te raden of q om te stoppen';
     }
 }
