@@ -24,7 +24,7 @@ function checkGuess(event) {
     pogingen++;
 
     if (parseInt(userGuess) === secretNumber) {
-        document.getElementById("output").innerText = `Gefeliciteerd! Je hebt het geradden in ${pogingen} pogingen.`;
+        document.getElementById("output").innerText = `Gefeliciteerd! Je hebt het geraden in ${pogingen} pogingen.`;
         document.getElementById("output-hint").innerText = ''; 
 
         inputGuess.value = '';
