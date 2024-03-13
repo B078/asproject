@@ -1,4 +1,4 @@
-const secretNumber = Math.floor(Math.random() * 100) + 1;
+const secretNumber = Math.floor(Math.random() * 1000) + 1;
 console.log(secretNumber)
 let pogingen = 0;
 
