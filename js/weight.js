@@ -18,6 +18,16 @@ product = [
 
 let wrapper = document.querySelector(".wrapper");
 
+let Name1 = document.createElement("p");
+Name1.textContent = "Weight Pallet";
+Name1.id = "Names"
+wrapper.appendChild(Name1);
+
+let Name2 = document.createElement("span");
+Name2.textContent = "Total Weight";
+Name1.appendChild(Name2);
+
+
 for (let i = 0; i < 3; i++) {
     let Palletline = document.createElement("p");
     wrapper.appendChild(Palletline);
