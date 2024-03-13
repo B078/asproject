@@ -41,6 +41,7 @@ for (let i = 0; i < 3; i++) {
     input.id = "input-" + product[i].title.toLowerCase();
     input.type = "number";
     input.min = "0";
+    input.placeholder = "Hoeveel pallets?"
     Palletline.appendChild(input);
 
     let weightSpan = document.createElement("span");
