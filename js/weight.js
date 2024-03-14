@@ -59,8 +59,6 @@ for (let index in product) {
         if (totalWeight >= 20000) {
             alert("je bent te zwaar bolle")
         }
-       
-        
     });
     
     let weightSpan = document.createElement("span");
