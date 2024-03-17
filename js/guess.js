@@ -26,18 +26,20 @@ function checkGuess(event) {
     if (parseInt(userGuess) === secretNumber) {
         document.getElementById("output").innerText = `Gefeliciteerd! Je hebt het geraden in ${pogingen} pogingen.`;
         document.getElementById("output-hint").innerText = ''; 
-
+    
         inputGuess.value = '';
         inputGuess.placeholder = 'typ een getal om te raden';
-        
     } else {
         const difference = Math.abs(secretNumber - parseInt(userGuess));
         console.log(pogingen)
         let message = '';
         let messageHint = '';
-        if( pogingen === 10) {
+        if (pogingen === 10) {
             message = "Helaas te veel pogingen";
-        }else if  (difference < 10) {
+            setTimeout(function() {
+                location.reload();
+            },2000);
+        } else if (difference < 10) {
             message = 'Heel Warm! ';
         } else if (difference < 20) {
             message = 'Warm! ';
@@ -47,15 +49,17 @@ function checkGuess(event) {
             message = "Heel Koud";
         }
         
-        if (parseInt(userGuess) < secretNumber) {
-            messageHint = 'Probeer hoger.';
-        } else {
-            messageHint = 'Probeer lager.';
+        if (pogingen < 10) { 
+            if (parseInt(userGuess) < secretNumber) {
+                messageHint = 'Probeer hoger.';
+            } else {
+                messageHint = 'Probeer lager.';
+            }
         }
-
+    
         document.getElementById("output").innerText = message;
         document.getElementById("output-hint").innerText = messageHint;
-
+    
         inputGuess.value = '';
         inputGuess.placeholder = 'typ een getal om te raden of q om te stoppen';
     }
