@@ -71,7 +71,7 @@ h1 {
     cursor: pointer;
 }
 
-.output, .output-hint {
+.output, .output-hint, .winning {
     display: block;
     padding: 10px;
     font-size: 24px;
