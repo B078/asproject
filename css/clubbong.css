@@ -71,3 +71,25 @@ body {
   #kleur_bandje {
     font-size: 24px;
   }
+
+  #containerFormDrinks {
+    position: fixed;
+    width: 400px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  #containerFormDrinks:hover input  {
+    background-color: #ccc;
+  }
+
+#drinkForm label {
+  margin-left: 10px;
+}
+
