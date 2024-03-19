@@ -3,8 +3,9 @@ const min_leeftijd = 18;
 const vip = ["bjorn", "peter", "jeroen"];
 const bandje_rood = 'rood';
 const bandje_blauw = 'blauw';
-let HeeftBlauwBandje = false
-let stempeltje = false
+let HeeftBlauwBandje = false;
+let heeftBandje = false;
+let stempeltje = false;
 let jonger_18 = false;
 const drinks = [
     {
@@ -49,6 +50,7 @@ input_age.addEventListener("input", function() {
             inputValue = 0;
             input_age.value = inputValue;
         }
+
 
         let toegang_geweigerdDIV_age = document.getElementById('toegang-geweigerd');
         let ageAlertDiv_age = document.getElementById('age-alert');
@@ -105,6 +107,10 @@ input_name.addEventListener("blur", function(event) {
                         checking.style.display = 'none';
                         kleur_bandje.style.display = 'block';
                         kleur_bandje.innerHTML = `U krijgt van mij een <span style="color: red;">${bandje_rood}</span> bandje`;
+                        heeftBandje = true
+                        setTimeout(function(){
+                            maakdrankjeForm();
+                        }, 2000);
                     }
                 }, 1000);
 
@@ -117,13 +123,20 @@ input_name.addEventListener("blur", function(event) {
                         kleur_bandje.style.display = 'block';
                         kleur_bandje.innerHTML = `U krijgt van mij een <span style="color: blue;">${bandje_blauw}</span> bandje`;
                         HeeftBlauwBandje = true;
+                        heeftBandje = true
+                        setTimeout(function(){
+                            maakdrankjeForm();
+                        }, 2000);
                     }
                 }, 1000);
             }
         } 
         else if(inputValue < 21){ 
             console.log('under 21')
-            VraagDrankje()
+            setTimeout(function(){
+                maakdrankjeForm();
+            }, 2000);
+            
         } else {
             console.log('over 21 ')
             checking.style.display = 'none'
@@ -140,7 +153,7 @@ input_name.addEventListener("blur", function(event) {
 });
 
 //naam input end
-
+//maak drankje form
 function maakdrankjeForm() {
     let containerFormDrinks = document.getElementById("containerFormDrinks")
     stempel.style.display = 'none';
@@ -152,7 +165,7 @@ function maakdrankjeForm() {
     form_drinks.id = 'drinksForm'
 
     let TitleDrinks = document.createElement('h3');
-    TitleDrinks.textContent = "Kies je drank (Max 1): ";
+    TitleDrinks.textContent = "Kies je drank : ";
 
     form_drinks.appendChild(TitleDrinks)
 
@@ -160,7 +173,7 @@ function maakdrankjeForm() {
 
     drinks.forEach(drink => {
        let checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
+        checkbox.type = 'radio';
         checkbox.name = 'drinks';
         checkbox.value = drink.name;
 
@@ -178,25 +191,71 @@ function maakdrankjeForm() {
         let submitbutton = document.createElement('button')
         submitbutton.textContent = "Verzenden"
         submitbutton.type = 'submit'
+        submitbutton.addEventListener("click", submitForm);
 
        
         form_drinks.appendChild(submitbutton);
         containerFormDrinks.appendChild(form_drinks)
+// einde drankje from
+// function submit keuze drankje
+        function submitForm(event){
+            event.preventDefault()
+
+            let drinkAfhandeling = document.getElementById('drink-afhandeling')
+            let outputDrink = document.getElementById('output-drink')
+            const selectedDrink = document.querySelector('input[name="drinks"]:checked');
+
+            if (selectedDrink !== null) {
+                if (selectedDrink.value === 'Cola' && heeftBandje) {
+                    setTimeout(function(){
+                    containerFormDrinks.style.display = 'none';
+                    drinkAfhandeling.style.display = 'block';
+                    outputDrink.textContent = 'Alstublieft complimenten van het huis';
+                    },1000);
+                    setTimeout(function(){
+                        location.reload();
+                    },2000);
+                } else{
+                    setTimeout(function(){
+                        containerFormDrinks.style.display = 'none';
+                        drinkAfhandeling.style.display = 'block';
+                        outputDrink.textContent = `Hier is uw ${selectedDrink.value} dat wordt dan ${drinks[0].price.toFixed(2)} euro`;
+                        },1000);
+                        setTimeout(function(){
+                            location.reload();
+                        },2000);
+                }
+                if (selectedDrink.value === 'Bier' && heeftBandje || stempeltje) {
+                    setTimeout(function(){
+                        containerFormDrinks.style.display = 'none';
+                        drinkAfhandeling.style.display = 'block';
+                        outputDrink.textContent = `Hier is uw ${selectedDrink.value} dat wordt dan ${drinks[0].price.toFixed(2)} euro`;
+                        },1000);
+                        setTimeout(function(){
+                            location.reload();
+                        },2000);
+                } else {
+                    alert('te jonge')
+                }
+                if (selectedDrink.value === 'Champagne') {
+                    alert("Selected drink: Champagne");
+                }
+                if(selectedDrink.value === 'anders') {
+                    setTimeout(function(){
+                        containerFormDrinks.style.display = 'none';
+                        drinkAfhandeling.style.display = 'block';
+                        outputDrink.textContent = 'Dat hebben we niet, hier een glaasje water';
+                        },1000);
+                        setTimeout(function(){
+                            location.reload();
+                        },2000);
+                }
+            } else {
+                alert("Please select a drink.");
+            }
+
+        }
 
 
 }
 
-
-
-
-
-
-
- // vraag welk drnakje iemand wil
-function VraagDrankje() {
-    display_name_input.style.display = 'none'
-    checking.style.display = 'none';
-    kleur_bandje.style.display = 'none'
-    stempel.style.display = 'none'
-    console.log('drankje')
-}

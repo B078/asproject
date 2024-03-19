@@ -9,7 +9,6 @@ body {
 .navbar-brand {
     color: white;
     font-size: 26px;
-    padding-bottom: 0;
 }
 
 .nav-link {
@@ -36,7 +35,8 @@ body {
 
   #age-input,
   #name-input,
-  #drink-input {
+  #drink-input,
+  #drink-afhandeling{
     position: fixed;
     width: 400px;
     top: 20%;
@@ -89,7 +89,7 @@ body {
     background-color: #ccc;
   }
 
-#drinkForm label {
+#drinksForm label {
   margin-left: 10px;
 }
 
