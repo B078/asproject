@@ -215,6 +215,7 @@ function maakdrankjeForm() {
                     setTimeout(function(){
                         location.reload();
                     },2000);
+                    
                 } else{
                     setTimeout(function(){
                         containerFormDrinks.style.display = 'none';
@@ -224,8 +225,9 @@ function maakdrankjeForm() {
                         setTimeout(function(){
                             location.reload();
                         },2000);
+                        
                 }
-                if (selectedDrink.value === 'Bier' && heeftBandje || stempeltje) {
+                if (selectedDrink.value === 'Bier' && (heeftBandje || stempeltje)) {
                     setTimeout(function(){
                         containerFormDrinks.style.display = 'none';
                         drinkAfhandeling.style.display = 'block';
@@ -234,6 +236,7 @@ function maakdrankjeForm() {
                         setTimeout(function(){
                             location.reload();
                         },2000);
+                        
                 } else {
                     setTimeout(function(){
                     containerFormDrinks.style.display = 'none';
@@ -245,12 +248,11 @@ function maakdrankjeForm() {
                     errorBericht.textContent = "je mag geen bier onder 21 bestellen";
                     alertHeading.textContent = 'Bestelling geanuleerd';
                     },1000);
-                    setTimeout(function(){
-                        location.reload();
-                    },10000);
+                    
                 }
                 if (selectedDrink.value === 'Champagne') {
                     alert("Selected drink: Champagne");
+                    
                 }
                 if(selectedDrink.value === 'anders') {
                     setTimeout(function(){
@@ -261,6 +263,7 @@ function maakdrankjeForm() {
                         setTimeout(function(){
                             location.reload();
                         },2000);
+                        
                 }
             } else {
                 alert("Please select a drink.");
