@@ -7,7 +7,7 @@ let HeeftBlauwBandje = false;
 let heeftBandje = false;
 let stempeltje = false;
 let jonger_18 = false;
-const drinks = [
+let drinks = [
     {
         name: 'Cola',
         price: 3.50,
@@ -37,6 +37,10 @@ let kleur_bandje = document.getElementById("kleur_bandje")
 let stempel = document.getElementById("stempel");
 let checking = document.getElementById("checking_kleur_bandje")
 let display_name_input = document.getElementById('name-input')
+let toegang_geweigerdDIV_age = document.getElementById('toegang-geweigerd');
+let ageAlertDiv_age = document.getElementById('age-alert');
+let successAlertDiv_age = document.getElementById('alert-succes');
+let Age_Wait = document.getElementById("age-wait");
 let timer;
 let inputValue
 
@@ -52,10 +56,6 @@ input_age.addEventListener("input", function() {
         }
 
 
-        let toegang_geweigerdDIV_age = document.getElementById('toegang-geweigerd');
-        let ageAlertDiv_age = document.getElementById('age-alert');
-        let successAlertDiv_age = document.getElementById('alert-succes');
-        let Age_Wait = document.getElementById("age-wait");
 
         let difference = min_leeftijd - inputValue;
 
@@ -203,7 +203,7 @@ function maakdrankjeForm() {
 
             let drinkAfhandeling = document.getElementById('drink-afhandeling')
             let outputDrink = document.getElementById('output-drink')
-            const selectedDrink = document.querySelector('input[name="drinks"]:checked');
+            let selectedDrink = document.querySelector('input[name="drinks"]:checked');
 
             if (selectedDrink !== null) {
                 if (selectedDrink.value === 'Cola' && heeftBandje) {
@@ -235,7 +235,19 @@ function maakdrankjeForm() {
                             location.reload();
                         },2000);
                 } else {
-                    alert('te jonge')
+                    setTimeout(function(){
+                    containerFormDrinks.style.display = 'none';
+                    drinkAfhandeling.style.display = 'none';
+                    outputDrink.style.display = 'none';
+                    toegang_geweigerdDIV_age.style.display = 'block';
+                    let alertHeading = document.getElementById("alert-heading");
+                    let errorBericht = document.getElementById("error-bericht");
+                    errorBericht.textContent = "je mag geen bier onder 21 bestellen";
+                    alertHeading.textContent = 'Bestelling geanuleerd';
+                    },1000);
+                    setTimeout(function(){
+                        location.reload();
+                    },10000);
                 }
                 if (selectedDrink.value === 'Champagne') {
                     alert("Selected drink: Champagne");
