@@ -19,7 +19,7 @@ body {
     color: white;
     position: relative;
     top: 70px;
-    left: 35%;
+    left: 40%;
     padding: 10px;
     width: 400px;
     border: 2px solid white;
@@ -55,7 +55,8 @@ body {
   }
 
   
-  #toegang-geweigerd {
+  #toegang-geweigerd,
+  #toegang-geweigerd1 {
     position: fixed;
     width: 400px;
     top: 25%;

@@ -1,5 +1,6 @@
 //const en var voor program
 const min_leeftijd = 18;
+const min_leeftijd_21 = 21
 const vip = ["bjorn", "peter", "jeroen"];
 const bandje_rood = 'rood';
 const bandje_blauw = 'blauw';
@@ -38,14 +39,18 @@ let stempel = document.getElementById("stempel");
 let checking = document.getElementById("checking_kleur_bandje")
 let display_name_input = document.getElementById('name-input')
 let toegang_geweigerdDIV_age = document.getElementById('toegang-geweigerd');
+let toegang_geweigerd1 = document.getElementById("toegang-geweigerd1")
 let ageAlertDiv_age = document.getElementById('age-alert');
 let successAlertDiv_age = document.getElementById('alert-succes');
 let Age_Wait = document.getElementById("age-wait");
+let age_wait21 = document.getElementById('age-wait21')
+let drinkAfhandeling = document.getElementById('drink-afhandeling')
 let timer;
 let inputValue
 
 // leeftijd input 
 input_age.addEventListener("input", function() {
+    drinkAfhandeling.style.display = 'none'
     clearTimeout(timer);
         setTimeout(function() {
         inputValue = parseInt(input_age.value) || 0;
@@ -200,13 +205,82 @@ function maakdrankjeForm() {
 // function submit keuze drankje
         function submitForm(event){
             event.preventDefault()
-
-            let drinkAfhandeling = document.getElementById('drink-afhandeling')
+            let difference_21 = min_leeftijd_21 - inputValue;
             let outputDrink = document.getElementById('output-drink')
             let selectedDrink = document.querySelector('input[name="drinks"]:checked');
-
             if (selectedDrink !== null) {
-                if (selectedDrink.value === 'Cola' && heeftBandje) {
+                if (selectedDrink.value === 'Cola') {
+                    if (heeftBandje) {
+                        setTimeout(function(){
+                        containerFormDrinks.style.display = 'none';
+                        input_age.style.display = 'none';
+                        drinkAfhandeling.style.display = 'block';
+                        outputDrink.textContent = 'Alstublieft complimenten van het huis';
+                        },2000)
+                    } else {
+                        setTimeout(function(){
+                        containerFormDrinks.style.display = 'none';
+                        drinkAfhandeling.style.display = 'block';
+                        input_age.style.display = 'none';
+                        outputDrink.textContent = `Hier is uw ${selectedDrink.value} dat wordt dan ${drinks[0].price.toFixed(2)} euro`;
+                        },2000)
+                    }
+                } else if (selectedDrink.value === 'Bier') {
+                    if (heeftBandje || stempeltje) {
+                        if(heeftBandje) {
+                            setTimeout(function(){
+                            containerFormDrinks.style.display = 'none';
+                            input_age.style.display = 'none';
+                            drinkAfhandeling.style.display = 'block';
+                            outputDrink.textContent = 'Alstublieft complimenten van het huis';
+                            },2000)
+                        }
+                        else {
+                            setTimeout(function(){
+                            containerFormDrinks.style.display = 'none';
+                            drinkAfhandeling.style.display = 'block';
+                            input_age.style.display = 'none';
+                            outputDrink.textContent = `Hier is uw ${selectedDrink.value} dat wordt dan ${drinks[0].price.toFixed(2)} euro`;
+                            },2000)
+                        }
+                    } else {
+                        setTimeout(function(){
+                        containerFormDrinks.style.display = 'none';
+                        drinkAfhandeling.style.display = 'none';
+                        outputDrink.style.display = 'none';
+                        toegang_geweigerd1.style.display = 'block';
+                        age_wait21.textContent = `u moet nog ${difference_21} jaar wachten`
+                        },2000)
+
+                    }
+                } else if (selectedDrink.value === 'Champagne') {
+                    if(heeftBandje){
+                        if(HeeftBlauwBandje){
+                            setTimeout(function(){
+                            containerFormDrinks.style.display = 'none';
+                            drinkAfhandeling.style.display = 'block';
+                            input_age.style.display = 'none';
+                            outputDrink.textContent = `Hier is uw ${selectedDrink.value} dat wordt dan ${drinks[0].price.toFixed(2)} euro`;
+                            },2000)
+                        }else {
+                            setTimeout(function(){
+                            containerFormDrinks.style.display = 'none';
+                            drinkAfhandeling.style.display = 'none';
+                            outputDrink.style.display = 'none';
+                            toegang_geweigerd1.style.display = 'block';
+                            age_wait21.textContent = `u moet nog ${difference_21} jaar wachten`
+                            },2000)
+                        }
+                    }else {
+                        setTimeout(function(){
+                        containerFormDrinks.style.display = 'none';
+                        drinkAfhandeling.style.display = 'block';
+                        input_age.style.display = 'none';
+                        outputDrink.textContent = 'alleen vips kunnen campagne bestellen';
+                        },2000)
+                    }
+                } else if (selectedDrink.value === 'anders') {
+                    
                     setTimeout(function(){
                     containerFormDrinks.style.display = 'none';
                     drinkAfhandeling.style.display = 'block';
@@ -214,61 +288,11 @@ function maakdrankjeForm() {
                     },1000);
                     setTimeout(function(){
                         location.reload();
-                    },2000);
-                    
-                } else{
-                    setTimeout(function(){
-                        containerFormDrinks.style.display = 'none';
-                        drinkAfhandeling.style.display = 'block';
-                        outputDrink.textContent = `Hier is uw ${selectedDrink.value} dat wordt dan ${drinks[0].price.toFixed(2)} euro`;
-                        },1000);
-                        setTimeout(function(){
-                            location.reload();
-                        },2000);
-                        
-                }
-                if (selectedDrink.value === 'Bier' && (heeftBandje || stempeltje)) {
-                    setTimeout(function(){
-                        containerFormDrinks.style.display = 'none';
-                        drinkAfhandeling.style.display = 'block';
-                        outputDrink.textContent = `Hier is uw ${selectedDrink.value} dat wordt dan ${drinks[0].price.toFixed(2)} euro`;
-                        },1000);
-                        setTimeout(function(){
-                            location.reload();
-                        },2000);
-                        
-                } else {
-                    setTimeout(function(){
-                    containerFormDrinks.style.display = 'none';
-                    drinkAfhandeling.style.display = 'none';
-                    outputDrink.style.display = 'none';
-                    toegang_geweigerdDIV_age.style.display = 'block';
-                    let alertHeading = document.getElementById("alert-heading");
-                    let errorBericht = document.getElementById("error-bericht");
-                    errorBericht.textContent = "je mag geen bier onder 21 bestellen";
-                    alertHeading.textContent = 'Bestelling geanuleerd';
-                    },1000);
-                    
-                }
-                if (selectedDrink.value === 'Champagne') {
-                    alert("Selected drink: Champagne");
-                    
-                }
-                if(selectedDrink.value === 'anders') {
-                    setTimeout(function(){
-                        containerFormDrinks.style.display = 'none';
-                        drinkAfhandeling.style.display = 'block';
-                        outputDrink.textContent = 'Dat hebben we niet, hier een glaasje water';
-                        },1000);
-                        setTimeout(function(){
-                            location.reload();
-                        },2000);
-                        
+                    },2000);  
                 }
             } else {
                 alert("Please select a drink.");
             }
-
         }
 
 

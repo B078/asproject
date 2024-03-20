@@ -11,7 +11,7 @@ function startNewRound() {
     secretNummer = Math.floor(Math.random() * 1000) + 1;
     console.log(`Secret nummer voor ronde ${currentRound}: ${secretNummer}`);
 
-    // Display round information
+   
     document.getElementById("output").innerText = `Ronde ${currentRound}`;
     document.getElementById("output-hint").innerText = `Je hebt nog ${pogingenLeft} pogingen over.`;
     document.getElementById("winning").innerText = ''
@@ -75,9 +75,9 @@ function checkGuess(event) {
             }
         } else {
             const difference = Math.abs(secretNummer - guessNumber);
-            if (difference < 10) {
+            if (difference <= 10) {
                 message = 'Heel Warm! ';
-            } else if (difference < 20) {
+            } else if (difference <= 20) {
                 message = 'Warm! ';
             } else if (difference <= 50) {
                 message = 'Koud';
