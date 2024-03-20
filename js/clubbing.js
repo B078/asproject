@@ -150,9 +150,7 @@ input_name.addEventListener("blur", function(event) {
             stempeltje = true
             setTimeout(function(){
                 maakdrankjeForm();
-            }, 2000);
-
-            
+            }, 2000); 
         }
     }, 5000);
 });
