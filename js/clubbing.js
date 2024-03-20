@@ -211,15 +211,19 @@ function maakdrankjeForm() {
             if (selectedDrink !== null) {
                 if (selectedDrink.value === 'Cola') {
                     if (heeftBandje) {
+                        setTimeout(function(){
                         containerFormDrinks.style.display = 'none';
                         input_age.style.display = 'none';
                         drinkAfhandeling.style.display = 'block';
                         outputDrink.textContent = 'Alstublieft complimenten van het huis';
+                        },2000)
                     } else {
+                        setTimeout(function(){
                         containerFormDrinks.style.display = 'none';
                         drinkAfhandeling.style.display = 'block';
                         input_age.style.display = 'none';
                         outputDrink.textContent = `Hier is uw ${selectedDrink.value} dat wordt dan ${drinks[0].price.toFixed(2)} euro`;
+                        },2000)
                     }
                 } else if (selectedDrink.value === 'Bier') {
                     if (heeftBandje || stempeltje) {
