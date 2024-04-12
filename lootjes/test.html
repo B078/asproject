@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paired Names</title>
+</head>
+<body>
+
+<div id="pairs-container"></div>
+
+<script>
+
+const pairs = [["a", "c"], ["c", "b"], ["b", "a"]];
+
+pairs.forEach(pair => {
+    console.log(pair)
+    const firstElement = pair[0];
+    if (firstElement === "b") {
+        console.log("Alert! First element is 'a' in pair:", pair);
+    }
+});
+
+
+
+</script>
+
+</body>
+</html>

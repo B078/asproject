@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(/assets/Sinterklaas.png);
+    object-fit: cover;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#formLootjes {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input {
+    display: block;
+    position: relative;
+    margin: 5px auto;
+}
+
+.Listnames {
+    position: absolute;
+    top: 30%;
+    right: 25%;
+    transform: translateY(-50%);
+    height: 210px; 
+    width: 150px;
+    overflow-y: auto; 
+}
+
+#ListTitle {
+    position: relative;
+    left: 64%;
+    top: 6%;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 3px;
+    height: 80px;
+    width: 175px;
+    box-shadow: 0px 0px 10px rgba(228, 9, 9, 0.908);
+    font-size: 32px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); 
+    text-align: center;
+}
+
+#displayField {
+    padding: 0;
+    list-style: none;
+    color: white;
+    font-size: 26px;
+    overflow: hidden;
+}
+
+
+
+#sint {
+    position: relative;
+    top: 150px;
+    left: -50px;
+    height: 300px;
+    width: 300px;
+    background: transparent;
+    animation: growAndShrink 2s infinite alternate;
+}
+
+#circle {
+    position: relative;
+    top: -20%;
+    left: 12%;
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    animation: growAndShrink 5s infinite alternate;
+}
+
+#circle2 {
+    position: relative;
+    top: -19%;
+    left: 10%;
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    animation: growAndShrink 5s infinite alternate;
+}
+
+
+@keyframes growAndShrink {
+    0% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1); 
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+.Privatedisplay {
+    position: relative;
+    top: -25%;
+    left: 34%;
+    color: black;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    font-size: 40px;
+    border: 2px solid black;
+    max-width: 400px;
+    max-height: 400px;
+    padding-left: 15px;
+    padding-bottom: 3px;
+    padding-top: 5px;
+    justify-content: center;
+    text-align: center;
+}
+
+.buttonName {
+    color: white;
+    opacity: 0.5;
+    background-color: black;
+    border: none;
+    height: 50px;
+    width: 40px;
+    margin: 10px 5px;
+}
+
+.buttonName:hover {
+   opacity: 1;
+}
+
+#PrivatedLootje {
+    position: relative;
+    top: -25%;
+    left: 34%;
+    color: black;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    font-size: 40px;
+    border: 2px solid black;
+    max-width: 400px;
+    max-height: 400px;
+    padding-left: 15px;
+    padding-bottom: 3px;
+    padding-top: 5px;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+
+
+
+
