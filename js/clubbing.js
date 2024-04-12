@@ -35,16 +35,16 @@ let drinks = [
 let input_age = document.getElementById('age');
 let input_name = document.getElementById("name")
 let kleur_bandje = document.getElementById("kleur_bandje")
-let stempel = document.getElementById("stempel");
-let checking = document.getElementById("checking_kleur_bandje")
+let ageAlertDiv_age = document.getElementById('age-alert');
+let drinkAfhandeling = document.getElementById('drink-afhandeling')
+let toegang_geweigerd1 = document.getElementById("toegang-geweigerd1")
 let display_name_input = document.getElementById('name-input')
 let toegang_geweigerdDIV_age = document.getElementById('toegang-geweigerd');
-let toegang_geweigerd1 = document.getElementById("toegang-geweigerd1")
-let ageAlertDiv_age = document.getElementById('age-alert');
 let successAlertDiv_age = document.getElementById('alert-succes');
-let Age_Wait = document.getElementById("age-wait");
 let age_wait21 = document.getElementById('age-wait21')
-let drinkAfhandeling = document.getElementById('drink-afhandeling')
+let Age_Wait = document.getElementById("age-wait");
+let checking = document.getElementById("checking_kleur_bandje")
+let stempel = document.getElementById("stempel");
 let timer;
 let inputValue
 
