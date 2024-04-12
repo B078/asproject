@@ -4,11 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fruitmand</title>
-</head>
-<body>
-    <div id="container"></div>
-
+    <!-- <script src="/js/fruitmand01.js" type="module"></script> -->
+    <!-- <script src="/js/fruitmand01.js" type="module"></script> -->
     <script src="/js/fruitmand01.js" type="module"></script>
+</head>
+<style>
+    #aantalFruit {
+    position: fixed;
+    width: 400px;
+    top: 20%;
+    left: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+    }
+
+    button {
+        display: block;
+        position: relative;
+        left: 40px;
+    }
+
+    input {
+        margin-left: 5px;
+    }
+</style>
+<body>
+    
+
+    <div class="aantalFruit" id="aantalFruit">
+        <label for="fruitInput">kies hoeveel fruit u wil</label>
+        <input type="number" id="fruitInput" placeholder="hoeveel fruiten">
+        <button id="StartButton" type="submit">klik op mij</button>
+    </div>
+
+
+
     
 </body>
 </html>
